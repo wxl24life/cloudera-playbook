@@ -17,14 +17,14 @@ cdh_services:
 
   - type: hive
 
-  - type: hue
+#  - type: hue
 
-  - type: impala
-    scratch_dirs: /tmp/impala
+#  - type: impala
+#    scratch_dirs: /tmp/impala
 
-  - type: oozie
+#  - type: oozie
 
-  - type: sentry
+#  - type: sentry
 
   - type: spark
 

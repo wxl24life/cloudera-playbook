@@ -7,22 +7,6 @@
     "SPARK_ON_YARN-1-GATEWAY-BASE",
     "YARN-1-GATEWAY-BASE" ]
 }, {
-  "refName": "HostTemplate-Edge",
-  "cardinality": 1,
-  "roleConfigGroupsRefNames": [
-    "HDFS-1-HTTPFS-BASE",
-    "HBASE-1-HBASERESTSERVER-BASE",
-    "HBASE-1-HBASETHRIFTSERVER-BASE",
-    "HIVE-1-HIVESERVER2-BASE",
-    "HUE-1-HUE_SERVER-BASE",
-    "HUE-1-HUE_LOAD_BALANCER-BASE",
-    {% if (krb5_kdc_type is defined) and (krb5_kdc_type != 'none') %}
-    "HUE-1-KT_RENEWER-BASE",
-    {% endif %}
-    "OOZIE-1-OOZIE_SERVER-BASE",
-    "SPARK_ON_YARN-1-GATEWAY-BASE",
-    "YARN-1-GATEWAY-BASE" ]
-}, {
   "refName": "HostTemplate-Master1",
   "cardinality": 1,
   "roleConfigGroupsRefNames": [
@@ -31,10 +15,9 @@
     "HDFS-1-FAILOVERCONTROLLER-BASE",
     "HDFS-1-JOURNALNODE-BASE",
     "HIVE-1-HIVEMETASTORE-BASE",
-    "SENTRY-1-SENTRY_SERVER-BASE",
     "YARN-1-RESOURCEMANAGER-BASE",
     "ZOOKEEPER-1-SERVER-BASE" ]
-}, {
+},{
   "refName": "HostTemplate-Master2",
   "cardinality": 1,
   "roleConfigGroupsRefNames" : [
@@ -43,7 +26,6 @@
     "HDFS-1-FAILOVERCONTROLLER-BASE",
     "HDFS-1-JOURNALNODE-BASE",
     "HIVE-1-HIVEMETASTORE-BASE",
-    "SENTRY-1-SENTRY_SERVER-BASE",
     "YARN-1-RESOURCEMANAGER-BASE",
     "ZOOKEEPER-1-SERVER-BASE" ]
 }, {
@@ -53,8 +35,6 @@
     "HBASE-1-MASTER-BASE",
     "HDFS-1-BALANCER-BASE",
     "HDFS-1-JOURNALNODE-BASE",
-    "IMPALA-1-CATALOGSERVER-BASE",
-    "IMPALA-1-STATESTORE-BASE",
     "SPARK_ON_YARN-1-SPARK_YARN_HISTORY_SERVER-BASE",
     {% if cluster_version_cdh_major < '6' %}
     "SPARK2_ON_YARN-1-SPARK2_YARN_HISTORY_SERVER-BASE",
@@ -62,13 +42,23 @@
     "YARN-1-JOBHISTORY-BASE",
     "ZOOKEEPER-1-SERVER-BASE" ]
 }, {
+  "refName": "HostTemplate-Edge",
+  "cardinality": 1,
+  "roleConfigGroupsRefNames": [
+    "HDFS-1-HTTPFS-BASE",
+    "HBASE-1-HBASERESTSERVER-BASE",
+    "HBASE-1-HBASETHRIFTSERVER-BASE",
+    "HIVE-1-HIVESERVER2-BASE",
+    "SPARK_ON_YARN-1-GATEWAY-BASE",
+    "YARN-1-GATEWAY-BASE" ]
+}, 
+{
   "refName": "HostTemplate-Workers",
   "cardinality": 3,
   "roleConfigGroupsRefNames": [
     "HBASE-1-REGIONSERVER-BASE",
     "HDFS-1-DATANODE-BASE",
     "HIVE-1-GATEWAY-BASE",
-    "IMPALA-1-IMPALAD-BASE",
     "SPARK_ON_YARN-1-GATEWAY-BASE",
     {% if cluster_version_cdh_major < '6' %}
     "SPARK2_ON_YARN-1-GATEWAY-BASE",

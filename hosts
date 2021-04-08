@@ -1,32 +1,32 @@
 [scm_server]
-<host>
+cm-gateway
 
 [db_server]
-<host>
+cm-gateway
+
+[gateway_servers]
+cm-gateway host_template=HostTemplate-Gateway
 
 [krb5_server]
-<host>
+cm-gateway
+
+[edge_servers]
+cm-gateway host_template=HostTemplate-Edge role_ref_names=HDFS-HTTPFS-1
 
 [utility_servers:children]
 scm_server
 db_server
 krb5_server
 
-[gateway_servers]
-<host>        host_template=HostTemplate-Gateway
-
-[edge_servers]
-<host>        host_template=HostTemplate-Edge    role_ref_names=HDFS-HTTPFS-1
-
 [master_servers]
-<host>        host_template=HostTemplate-Master1
-<host>        host_template=HostTemplate-Master2
-<host>        host_template=HostTemplate-Master3
+master01 host_template=HostTemplate-Master1
+master02 host_template=HostTemplate-Master2
+master03 host_template=HostTemplate-Master3
 
 [worker_servers]
-<host>
-<host>
-<host>
+worker01
+worker02
+worker03
 
 [worker_servers:vars]
 host_template=HostTemplate-Workers
@@ -36,6 +36,3 @@ utility_servers
 gateway_servers
 master_servers
 worker_servers
-
-[all:vars]
-ansible_user=ec2-user

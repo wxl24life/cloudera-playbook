@@ -8,6 +8,7 @@
     name:
     - cloudera-manager-daemons
     - cloudera-manager-agent
+    lock_timeout: 180
     update_cache: yes
     state: installed
 
